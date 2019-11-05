@@ -1,6 +1,13 @@
 
 GET     /                                   controllers.Home.index
 
+GET     /ui/buttons                         controllers.UIElements.buttons
+GET     /ui/cards                           controllers.UIElements.cards
+
+GET     /utilities/animations               controllers.Utilities.animations
+GET     /utilities/borders                  controllers.Utilities.borders
+GET     /utilities/colors                   controllers.Utilities.colors
+GET     /utilities/other                    controllers.Utilities.other
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
