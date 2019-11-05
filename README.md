@@ -4,8 +4,21 @@
 
 ## 如何使用
 
-Clone， fork 或者代码拷贝都可以。
+非常简单， Clone 之后在项目根目录运行： `sbt run`。
+
+在 `http://localhost:9000/` 可以看到界面。
 
 ## 实现细节
 
-### 1. 创建基本 Play 代码结构
+Play 项目用 compile-time DI。  
+
+客户端基于以下库：
+
+- Bootstrap 4
+- Chart.js
+- Datatables
+- fontawesome-free
+- jQuery and jQuery-easing
+- Bootstrap Admin temaplate
+
+
