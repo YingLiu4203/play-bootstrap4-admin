@@ -1,6 +1,9 @@
 @()
 
-@main.layout(title = "Tables") {
+@localStylesheets = {
+    <link href='@routes.Assets.versioned("lib/datatables/css/dataTables.bootstrap4.css")' rel="stylesheet">
+}
+@main.layout(title = "Tables", stylesheets = localStylesheets) {
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
