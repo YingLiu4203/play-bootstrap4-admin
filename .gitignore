@@ -45,7 +45,8 @@ build/
 !.vscode/extensions.json
 
 # The Scala compiler used by VS Code
-metals/
+.metals/
+.bloop/
 
 ### Vim ###
 *.sw[a-p]
