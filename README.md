@@ -61,7 +61,19 @@ libraryDependencies += "org.webjars" % "chartjs" % "2.8.0"
 libraryDependencies += "org.webjars" % "font-awesome" % "5.11.2"
 ```
 
-## 程序加载
+## Play 程序
+
+### Controllers, Routes and Assets
+
+Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
+
+`views/main/main.scala.html` 定义了基本的 HTML 以及所有页面用到的 CSS 与 JS 资源。 `views/main/layout.scala.html` 则定义了总体布局，包括导航以及页头页尾。
+
+`cong/rotues` 定义了所有路由。
+
+`assets` 目录下面包含了用到个各种资源，包括图片，JS code 以及 SCSS 源代码。sbt 编译时会编译、拷贝和打包这些资源。
+
+### 程序加载
 
 Play 的文档 [Application entry point](https://www.playframework.com/documentation/2.7.x/ScalaCompileTimeDependencyInjection) 解释了使用编译注入需要了解的加载过程。Play 用 `ApplicationLoader` trait 定义应用的加载。其 `load` 方法的类型为 `Context => Application`。 `Context` 独立于具体应用，包含加载应用所需要的各种 Component。 这里，Component 是采用 [Think Cake Pattern](http://www.warski.org/blog/2014/02/using-scala-traits-as-modules-or-the-thin-cake-pattern/) 创建的包含所需依赖的 trait。 这些 trait 的名字通常用 `Components` 或 `Module` 作为结尾。
 
@@ -126,5 +138,7 @@ trait ApplicationModule {
 因为所有 Controller 的 Constructor 需要一个 `ControllerComponents` 类型的参数，这里需要给出抽象方法定义，否则会编译错误。具体的值，则在 mixin 这个 Component 的时候生成。
 
 刚创立上面二个文件时，`import router.Routes` 和 `wire[Routes]` 在 IDE 里面会报告错误。原因是 Play 在编译初期需要从路由的定义文件 `conf/routes` 产生相关 Scala 代码。运行 `sbt compile` 产生所需的路由代码。
+
+还需要指定加载程序，在 `conf/application.conf` 加入下面内容：`play.application.loader = MyApplicationLoader`。
 
 现在可以运行 `sbt run` 检查生成的网站。用 `sbt dist` 可以生成可以部署的二进制代码（需要在命令行给出 Application secret 或 事先配置）。
