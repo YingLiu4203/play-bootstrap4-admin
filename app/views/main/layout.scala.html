@@ -1,35 +1,35 @@
-
 @import play.twirl.api.HtmlFormat
 
-@(title: String = "", scripts: Html = HtmlFormat.empty, stylesheets: Html = HtmlFormat.empty)(content: Html)
+@(title: String = "", scripts: Html = HtmlFormat.empty, stylesheets: Html =
+HtmlFormat.empty)(content: Html)
 
 @main.main(title, scripts, stylesheets) {
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        @main.sidebar()
+<!-- Page Wrapper -->
+<div id="wrapper">
+  @main.sidebar()
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-                @main.topbar()
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      @main.topbar()
 
-                <div class="container-fluid">
-                    @content
-                </div>
+      <div class="container-fluid">
+        @content
+      </div>
 
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2019</span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
         </div>
+      </footer>
     </div>
+  </div>
+</div>
 
-        <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#wrapper">
-        <i class="fas fa-angle-up"></i>
-    </a>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#wrapper">
+  <i class="fas fa-angle-up"></i>
+</a>
 }
