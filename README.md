@@ -2,16 +2,17 @@
 
 这是一个用 Play 框架实现的基于 [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的管理仪表盘（dashbaord）模版。SB Admin 2 是一个采用 [Bootstrap 4](https://getbootstrap.com/) 的开源模版。
 
-## 如何使用
+## 1 如何使用
 
 非常简单， Clone 之后在项目根目录运行： `sbt run`。
 
-在 `http://localhost:9000/` 可以看到界面。
+在 `http://localhost:9000/` 可以看到如下界面：
 
-## 项目组成
+![admin-dashboard](./docs/admin-dashboard.png)
 
-基于 Play Framework。
-项目用 compile-time DI。  
+## 2 项目组成
+
+基于 Play Framework。项目用 [compile-time DI](https://www.playframework.com/documentation/2.8.x/ScalaCompileTimeDependencyInjection) 和 [Macwire Macro](http://di-in-scala.github.io/)。  
 
 客户端基于以下库：
 
