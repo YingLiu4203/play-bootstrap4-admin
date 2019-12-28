@@ -23,7 +23,7 @@
 - jQuery and jQuery-easing
 - Bootstrap Admin temaplate
 
-## sbt 配置
+## 3 sbt 配置
 
 Play Framework 采用了 MVC 结构，其项目结构不同于通常的 Scala 项目结构。sbt 遵循了 convention over configuration 原则，所以首先需要引入 Play 的 sbt plugin。
 
@@ -62,9 +62,9 @@ libraryDependencies += "org.webjars" % "chartjs" % "2.8.0"
 libraryDependencies += "org.webjars" % "font-awesome" % "5.11.2"
 ```
 
-## Play 程序
+## 4 Play 程序
 
-### Controllers, Routes and Assets
+### 4.1 Controllers, Routes and Assets
 
 Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
 
@@ -74,7 +74,7 @@ Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
 
 `assets` 目录下面包含了用到个各种资源，包括图片，JS code 以及 SCSS 源代码。sbt 编译时会编译、拷贝和打包这些资源。
 
-### 程序加载
+### 4.2 程序加载
 
 Play 的文档 [Application entry point](https://www.playframework.com/documentation/2.7.x/ScalaCompileTimeDependencyInjection) 解释了使用编译注入需要了解的加载过程。Play 用 `ApplicationLoader` trait 定义应用的加载。其 `load` 方法的类型为 `Context => Application`。 `Context` 独立于具体应用，包含加载应用所需要的各种 Component。 这里，Component 是采用 [Think Cake Pattern](http://www.warski.org/blog/2014/02/using-scala-traits-as-modules-or-the-thin-cake-pattern/) 创建的包含所需依赖的 trait。 这些 trait 的名字通常用 `Components` 或 `Module` 作为结尾。
 
