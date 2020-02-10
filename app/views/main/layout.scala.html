@@ -12,6 +12,7 @@ HtmlFormat.empty)(content: Html)
   <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
       @main.topbar()
+      @main.logoutModal()
 
       <div class="container-fluid">
         @content
@@ -29,7 +30,7 @@ HtmlFormat.empty)(content: Html)
 </div>
 
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#wrapper">
+<a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
 }
