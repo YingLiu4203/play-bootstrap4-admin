@@ -14,7 +14,7 @@ scalacOptions ++= Seq("-feature", "-deprecation", "-Xfatal-warnings")
 // Client side
 libraryDependencies += "org.webjars" % "jquery" % "3.4.1"
 libraryDependencies += "org.webjars" % "jquery-easing" % "1.4.1"
-libraryDependencies += "org.webjars" % "bootstrap" % "4.3.1"
+libraryDependencies += "org.webjars" % "bootstrap" % "4.4.1-1"
 libraryDependencies += "org.webjars" % "datatables" % "1.10.20"
-libraryDependencies += "org.webjars" % "chartjs" % "2.8.0"
-libraryDependencies += "org.webjars" % "font-awesome" % "5.11.2"
+libraryDependencies += "org.webjars" % "chartjs" % "2.9.3"
+libraryDependencies += "org.webjars" % "font-awesome" % "5.12.0"
