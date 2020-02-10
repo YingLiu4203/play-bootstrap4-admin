@@ -50,11 +50,9 @@ Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
 
 `cong/rotues` 定义了所有路由。
 
-`assets` 目录下面包含了用到个各种资源，包括图片，JS code 以及 SCSS 源代码。sbt 编译时会编译、拷贝和打包这些资源。这些资源都从 [SB Admin 2 repository](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 拷贝。不需要拷贝生成的CSS代码以及压缩版的JS代码。
+`assets` 目录下面包含了用到个各种资源，包括图片，JS code 以及 SCSS 源代码。sbt 编译时会编译、拷贝和打包这些资源。这些资源都从 [SB Admin 2 repository](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的 `img`，`js` 和 `scss` 目录拷贝。不需要拷贝生成的CSS代码以及压缩版的JS代码。SCSS 源代码拷贝到 `stylesheet` 目录，这样生成的 CSS 代码会在 `stylesheet` 而不是 `scss` 目录。保留了 `js` 和 `img` 目录名。
 
-因为 Scala 编译时会把相关的前端类库拷贝到 `lib` 目录，而 SB Admin 2 是在 `vendor` 目录。所以需要更改引用。只发现一处在 `sb-admin-2.scss`，需要改引用为 `@import "lib/bootstrap/scss/bootstrap.scss";`
-
-SCSS 源代码放到 `stylesheet` 目录，这样生成的 CSS 代码会在 `stylesheet` 而不是 `scss` 目录。保留了 `js` 和 `img` 目录名。
+SB Admin 2 的 `vendor` 目录是依赖库，在 `build.sbt` 中引入。因为 Scala 编译时会把相关的前端类库拷贝到 `lib` 目录，而 SB Admin 2 是在 `vendor` 目录，所以需要更改引用。只发现一处在 `sb-admin-2.scss`，需要改引用为 `@import "lib/bootstrap/scss/bootstrap.scss";`
 
 ### 4.2 程序加载
 
