@@ -1,6 +1,6 @@
 # 基于 Play Framework 的 Admin 模版
 
-这是一个用 Play 框架实现的基于 [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的管理仪表盘（dashbaord）模版。SB Admin 2 是一个采用 [Bootstrap 4](https://getbootstrap.com/) 的开源模版。
+这是一个用 Play 框架实现的基于 [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的管理仪表盘（dashbaord）模版 v4.1.0， 发布时间是 2020年1月14日。SB Admin 2 是一个采用 [Bootstrap 4](https://getbootstrap.com/) 的开源模版。
 
 ## 1 如何使用
 
@@ -21,7 +21,6 @@
 - Datatables
 - fontawesome-free
 - jQuery and jQuery-easing
-- Bootstrap Admin temaplate
 
 ## 3 sbt 配置
 
@@ -29,38 +28,10 @@ Play Framework 采用了 MVC 结构，其项目结构不同于通常的 Scala �
 
 在项目根目录创建 `project\` 子目录，在此子目录下创建下面二个文件：
 
-- `build.properties`: 设置 sbt 版本： `sbt.version=1.3.4`。
-- `plugins.sbt`: 引入 Play 的 `sbt-plugin` 以及 `sbt-sassify`：
+- `build.properties`: 设置 sbt 版本.
+- `plugins.sbt`: 引入 Play 的 `sbt-plugin` 以及 [`sbt-sassify`](https://github.com/irundaia/sbt-sassify).
 
-```scala
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.0")
-addSbtPlugin("org.irundaia.sbt" % "sbt-sassify" % "1.4.13")
-```
-
-在根目录创建 `build.sbt`，加入下面内容：
-
-```scala
-name := """play-bootstrap4-admin"""
-
-version := "0.0.1"
-
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.13.1"
-
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3" % Test
-libraryDependencies += "com.softwaremill.macwire" %% "macros" % "2.3.3" % "provided"
-
-scalacOptions ++= Seq("-feature", "-deprecation", "-Xfatal-warnings")
-
-// Client side
-libraryDependencies += "org.webjars" % "jquery" % "3.4.1"
-libraryDependencies += "org.webjars" % "jquery-easing" % "1.4.1"
-libraryDependencies += "org.webjars" % "bootstrap" % "4.3.1"
-libraryDependencies += "org.webjars" % "datatables" % "1.10.20"
-libraryDependencies += "org.webjars" % "chartjs" % "2.8.0"
-libraryDependencies += "org.webjars" % "font-awesome" % "5.11.2"
-```
+在根目录创建 `build.sbt` 定义版本号以及引入所用的类库。
 
 ## 4 Play 程序
 
