@@ -47,6 +47,8 @@ Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
 
 因为 Scala 编译时会把相关的前端类库拷贝到 `lib` 目录，而 SB Admin 2 是在 `vendor` 目录。所以需要更改引用。只发现一处在 `sb-admin-2.scss`，需要改引用为 `@import "lib/bootstrap/scss/bootstrap.scss";`
 
+SCSS 源代码放到 `stylesheet` 目录，这样生成的 CSS 代码会在 `stylesheet` 而不是 `scss` 目录。保留了 `js` 和 `img` 目录名。
+
 ### 4.2 程序加载
 
 Play 的文档 [Application entry point](https://www.playframework.com/documentation/2.7.x/ScalaCompileTimeDependencyInjection) 解释了使用编译注入需要了解的加载过程。Play 用 `ApplicationLoader` trait 定义应用的加载。其 `load` 方法的类型为 `Context => Application`。 `Context` 独立于具体应用，包含加载应用所需要的各种 Component。 这里，Component 是采用 [Think Cake Pattern](http://www.warski.org/blog/2014/02/using-scala-traits-as-modules-or-the-thin-cake-pattern/) 创建的包含所需依赖的 trait。 这些 trait 的名字通常用 `Components` 或 `Module` 作为结尾。
