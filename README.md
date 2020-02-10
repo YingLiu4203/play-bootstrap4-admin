@@ -1,6 +1,13 @@
 # 基于 Play Framework 的 Admin 模版
 
-这是一个用 Play 框架实现的基于 [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的管理仪表盘（dashbaord）模版 v4.1.0， 发布时间是 2020年1月14日。SB Admin 2 是一个采用 [Bootstrap 4](https://getbootstrap.com/) 的开源模版。
+这是一个用 Play 框架实现的基于 [SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的管理仪表盘（dashbaord）。SB Admin 2 是一个采用 [Bootstrap 4](https://getbootstrap.com/) 的开源模版。
+
+版本号：
+
+- SB Admin 2, v4.1.0, 2020-01-14
+- Bootstrap 4, v4.4.1, 2019-11-28号
+- jQuery, v3.4.1, 2019-05-01
+- Play framework, v 2.8.1, 2020-01-31
 
 ## 1 如何使用
 
