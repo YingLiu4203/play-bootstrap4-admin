@@ -23,11 +23,11 @@
 
 客户端基于以下库：
 
-- Bootstrap 4
-- Chart.js
-- Datatables
-- fontawesome-free
-- jQuery and jQuery-easing
+- [Bootstrap 4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+- [Chart.js](https://www.chartjs.org/)
+- [Datatables](https://datatables.net/)
+- [fontawesome-free](https://fontawesome.com/start)
+- [jQuery](https://jquery.com/) and [jQuery-easing](https://jqueryui.com/easing/)
 
 ## 3 sbt 配置
 
@@ -48,7 +48,7 @@ Play 是个 MVC 框架。Controller 都很简单，直接返回各自的 View。
 
 `views/main/main.scala.html` 定义了基本的 HTML 以及所有页面用到的 CSS 与 JS 资源。 `views/main/layout.scala.html` 则定义了总体布局，包括导航以及页头页尾。
 
-`cong/rotues` 定义了所有路由。
+`conf/rotues` 定义了所有路由。
 
 `assets` 目录下面包含了用到个各种资源，包括图片，JS code 以及 SCSS 源代码。sbt 编译时会编译、拷贝和打包这些资源。这些资源都从 [SB Admin 2 repository](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2) 的 `img`，`js` 和 `scss` 目录拷贝。不需要拷贝生成的CSS代码以及压缩版的JS代码。SCSS 源代码拷贝到 `stylesheet` 目录，这样生成的 CSS 代码会在 `stylesheet` 而不是 `scss` 目录。保留了 `js` 和 `img` 目录名。
 
@@ -56,7 +56,7 @@ SB Admin 2 的 `vendor` 目录是依赖库，在 `build.sbt` 中引入。因为 
 
 ### 4.2 程序加载
 
-Play 的文档 [Application entry point](https://www.playframework.com/documentation/2.7.x/ScalaCompileTimeDependencyInjection) 解释了使用编译注入需要了解的加载过程。Play 用 `ApplicationLoader` trait 定义应用的加载。其 `load` 方法的类型为 `Context => Application`。 `Context` 独立于具体应用，包含加载应用所需要的各种 Component。 这里，Component 是采用 [Think Cake Pattern](http://www.warski.org/blog/2014/02/using-scala-traits-as-modules-or-the-thin-cake-pattern/) 创建的包含所需依赖的 trait。 这些 trait 的名字通常用 `Components` 或 `Module` 作为结尾。
+Play 的文档 [Application entry point](https://www.playframework.com/documentation/2.8.x/ScalaCompileTimeDependencyInjection) 解释了使用编译注入需要了解的加载过程。Play 用 `ApplicationLoader` trait 定义应用的加载。其 `load` 方法的类型为 `Context => Application`。 `Context` 独立于具体应用，包含加载应用所需要的各种 Component。 这里，Component 是采用 [Think Cake Pattern](http://www.warski.org/blog/2014/02/using-scala-traits-as-modules-or-the-thin-cake-pattern/) 创建的包含所需依赖的 trait。 这些 trait 的名字通常用 `Components` 或 `Module` 作为结尾。
 
 Play 提供了 `BuiltInComponentsFromContext` 作为父类帮助实现 `ApplicationLoader`。具体实现的子类需要提供最少二个所需要的模块：处理 Http 请求的处理链 `HttpFiltersComponents` 和定义的所有路由。 创建包含下面内容的 `app/MyApplicationLoader.scala` 文件, 其中包含了配置 Logger 的内容：
 
@@ -92,8 +92,7 @@ class ApplicationComponents(context: Context) extends BuiltInComponentsFromConte
 }
 ```
 
-上面用到的 `ApplicationModule` 包含了创建路由需要的所有 Controller instances。
-一个 Play Web 应用需要创建所有的路由和所有的 Controller。创建包含下面内容的 `app/GreetingModule.scala` 文件生成所有 Controller:
+上面用到的 `ApplicationModule` 包含了创建路由需要的所有 Controller instances。同时一个 Play Web 应用需要创建所有的路由和所有的 Controller。创建包含下面内容的 `app/GreetingModule.scala` 文件生成所有 Controller:
 
 ```scala
 import play.api.i18n.Langs
